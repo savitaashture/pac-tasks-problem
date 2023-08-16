@@ -12,12 +12,12 @@ metadata:
     pipelinesascode.tekton.dev/on-target-branch: "[main]"
 
     # Fetch the reference CNAP pipeline
-    pipelinesascode.tekton.dev/pipeline: "https://github.com/KMD-A-S-CNAP/pipelines-tasks/blob/main/pipelines-pac/ci-java-maven-basic/0.3/ci-java-maven-basic.yaml"
+    pipelinesascode.tekton.dev/pipeline: "https://github.com/Woj-Teh/pipelienes-tasks-problem/blob/main/pipelines-pac/pipeline-2/0.1/pipeline-2.yaml"
 
     # Fetch the git-clone task from hub, we are able to reference later on it
     # with taskRef and it will automatically be embedded into our pipeline.
     pipelinesascode.tekton.dev/task: "git-clone"
-    pipelinesascode.tekton.dev/task-3: "https://github.com/KMD-A-S-CNAP/pipelines-tasks/blob/main/tasks/set-results-from-cm/0.3/set-results-from-cm.yaml"
+    pipelinesascode.tekton.dev/task-3: "https://github.com/Woj-Teh/pipelienes-tasks-problem/blob/main/tasks/set-results-from-cm.yaml/0.3/set-results-from-cm.yaml"
     # how many runs we want to keep attached to this event
     pipelinesascode.tekton.dev/max-keep-runs: "5"
 spec:
@@ -29,7 +29,7 @@ spec:
     - name: revision
       value: "{{ revision }}"
   pipelineRef:
-    name: pipeline-1
+    name: pipeline-2
     params:
       - name: repo_url
       - name: revision
@@ -39,17 +39,17 @@ spec:
       - name: source
       - name: maven-settings
   workspaces:
-    - name: dockerconfig
+    - name:
       secret:
-        secretName: kaniko-quay-secret
-    - name: source
+        secretName:
+    - name:
       volumeClaimTemplate:
         spec:
           accessModes:
-            - ReadWriteOnce
+            -
           resources:
             requests:
-              storage: 1Gi
+              storage:
     - configMap:
-        name: maven-settings
-      name: maven-settings
+        name:
+      name:
