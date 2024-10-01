@@ -2,14 +2,14 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: ci-java-maven-basic-test
+  name: ci-java-maven-basic-test-1
   annotations:
     # The event we are targeting as seen from the webhook payload
     # this can be an array too, i.e: [pull_request, push]
-    pipelinesascode.tekton.dev/on-event: "[push]"
+    pipelinesascode.tekton.dev/on-event: "[pull_request,push]"
 
     # The branch or tag we are targeting (ie: main, refs/tags/*)
-    pipelinesascode.tekton.dev/on-target-branch: "[ci-java-maven-basic-test]"
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
 
     # Fetch the reference CNAP pipeline
     pipelinesascode.tekton.dev/pipeline: "https://github.com/Woj-Teh/pipelienes-tasks-problem/blob/main/pipelines-pac/pipeline-1/0.1/pipeline-1.yaml"
